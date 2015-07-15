@@ -463,7 +463,7 @@
 		 * Google Map
 		/* ---------------------------------------------- */
 
-		var mapLocation = new google.maps.LatLng(34.031428,-118.2071542,17);
+		var mapLocation = new google.maps.LatLng(55.786258, 37.595522);
 
 		var $mapis = $('#map');
 
@@ -493,7 +493,7 @@
 				icon: image,
 				title: 'Rival',
 				infoWindow: {
-					content: '<p><strong>Rival</strong><br/>121 Somewhere Ave, Suite 123<br/>P: (123) 456-7890<br/>Australia</p>'
+					content: '<p><strong>3D-MAX</strong><br/>Москва, ул. Новослободская, д. 48, оф. 406<br/>P: (123) 456-7890<br/>Россия</p>'
 				}
 			});
 
