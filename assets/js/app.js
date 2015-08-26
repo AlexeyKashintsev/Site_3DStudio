@@ -8,29 +8,21 @@ max3D.controller('learning3Dmax', function($scope, $http) {
             $scope.data = data[city];
         } else {
             $http.get("http://ipinfo.io").success(function(response) {
-                $scope.data = data[getCity(response.city, response.country)];
+                $scope.data = getData(response.city, response.country, data);
             })  
         }
         
     });
     
-    function getCity(aCity, aCountry) {
+    function getData(aCity, aCountry, aData) {
         var res = "Moscow";
-        switch (aCity) {
-            case "Moscow" : {
-                res = "Moscow";
+        for (var j in aData) {
+            if (aCity === j || aData[j].country === aCountry) {
+                res = j;
                 break;
             }
-            default: {
-                switch (aCountry) {
-                    case "RU": {
-                        res = "Moscow";
-                        break;
-                    }
-                }
-            }
         }
-        return res;
+        return aData[res];
     }
 });
 
