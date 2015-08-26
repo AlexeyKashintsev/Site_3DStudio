@@ -15,7 +15,7 @@
         }
     },
     "Ivanovo": {
-        "info": "Текст для Иваново",
+        "info": "Текст для Иваново 123",
         "costs": {
             "money_icon": "assets/images/ruble.gif",
             "STANDARD": 28000,
