@@ -1,35 +1,39 @@
 <?php
 
 	// Mail settings
-	$to = "web-master72@yandex.ru";
+	$to = "akashintsev@yandex.ru";
 	$subject = "Leaff contact form";
 
-	if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["message"])) {
+	//if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["message"])) {
 
-		$content  = "Name: "     . $_POST["name"]    . "\r\n";
-		$content .= "Email: "    . $_POST["email"]   . "\r\n";
-		$content .= "Message: "  . "\r\n" . $_POST["message"];
+	$content  = "Заявка с сайта\r\n";
+	$content .= "Телефон: "    . $_POST["phone"]   . "\r\n";
+	$content .= "Параметры UTM \r\n";
+	$content .= "Source: "    . $_POST["utm_source"]   . "\r\n";
+	$content .= "Campaing: "    . $_POST["utm_campaing"]   . "\r\n";
+	$content .= "Medium: "    . $_POST["utm_medium"]   . "\r\n";
+	$content .= "Term: "    . $_POST["utm_term"]   . "\r\n";
 
-		if (mail($to, $subject, $content, $_POST["email"])) {
+	if (mail($to, $subject, $content)) {
 
-			$result = array(
-				"message" => "Thanks for contacting us.",
-				"sendstatus" => 1
-			);
+		$result = array(
+			"message" => "Спасибо. В ближайшее время мы с Вами свяжемся",
+			"sendstatus" => 1
+		);
 
-			echo json_encode($result);
+		echo json_encode($result);
 
-		} else {
+	} else {
 
-			$result = array(
-				"message" => "Sorry, something is wrong.",
-				"sendstatus" => 0
-			);
+		$result = array(
+			"message" => "Извините, что-то пошло не так.",
+			"sendstatus" => 0
+		);
 
-			echo json_encode($result);
-
-		}
+		echo json_encode($result);
 
 	}
+
+	//}
 
 ?>
